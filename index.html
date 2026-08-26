@@ -6,32 +6,21 @@
 <title>Морская бухта — Н и НН</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html, body {
     height: 100%;
     font-family: 'Georgia', 'Times New Roman', serif;
     color: #2c3e50;
     overflow-x: hidden;
   }
-
   body {
-    background: linear-gradient(to bottom,
-      #87CEEB 0%,
-      #B0E0E6 35%,
-      #E0F6FF 65%,
-      #87CEEB 100%);
+    background: linear-gradient(to bottom, #87CEEB 0%, #B0E0E6 35%, #E0F6FF 65%, #87CEEB 100%);
     min-height: 100vh;
     position: relative;
     padding: 20px 10px 40px;
   }
-
-  /* === СОЛНЦЕ === */
   .sun {
-    position: fixed;
-    top: 50px;
-    right: 80px;
-    width: 100px;
-    height: 100px;
+    position: fixed; top: 50px; right: 80px;
+    width: 100px; height: 100px;
     background: radial-gradient(circle at 35% 35%, #fffacd 0%, #ffd700 45%, #ffa500 100%);
     border-radius: 50%;
     box-shadow: 0 0 60px #ffd700, 0 0 120px rgba(255, 165, 0, 0.5);
@@ -39,9 +28,7 @@
     animation: sunPulse 5s ease-in-out infinite;
   }
   .sun::before {
-    content: '';
-    position: absolute;
-    top: -20px; left: -20px;
+    content: ''; position: absolute; top: -20px; left: -20px;
     width: 140px; height: 140px;
     background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
     border-radius: 50%;
@@ -55,58 +42,33 @@
     0%, 100% { transform: scale(1); opacity: 0.8; }
     50% { transform: scale(1.15); opacity: 1; }
   }
-
-  /* === ОБЛАКА === */
   .clouds-layer {
-    position: fixed;
-    top: 0; left: 0;
+    position: fixed; top: 0; left: 0;
     width: 100%; height: 50%;
-    pointer-events: none;
-    z-index: 2;
-    overflow: hidden;
+    pointer-events: none; z-index: 2; overflow: hidden;
   }
   .cloud {
-    position: absolute;
-    background: #fff;
-    border-radius: 50px;
-    opacity: 0.9;
+    position: absolute; background: #fff;
+    border-radius: 50px; opacity: 0.9;
     filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
   }
   .cloud::before, .cloud::after {
-    content: '';
-    position: absolute;
-    background: #fff;
-    border-radius: 50%;
+    content: ''; position: absolute; background: #fff; border-radius: 50%;
   }
-  .cloud::before {
-    width: 60%; height: 150%;
-    top: -60%; left: 15%;
-  }
-  .cloud::after {
-    width: 45%; height: 120%;
-    top: -40%; right: 15%;
-  }
+  .cloud::before { width: 60%; height: 150%; top: -60%; left: 15%; }
+  .cloud::after { width: 45%; height: 120%; top: -40%; right: 15%; }
   @keyframes cloudDrift {
     0% { transform: translateX(-250px); }
     100% { transform: translateX(calc(100vw + 250px)); }
   }
-
-  /* === ЧАЙКИ === */
   .seagulls-layer {
-    position: fixed;
-    top: 0; left: 0;
+    position: fixed; top: 0; left: 0;
     width: 100%; height: 60%;
-    pointer-events: none;
-    z-index: 3;
-    overflow: hidden;
+    pointer-events: none; z-index: 3; overflow: hidden;
   }
-  .seagull {
-    position: absolute;
-    animation: seagullFly linear infinite;
-  }
+  .seagull { position: absolute; animation: seagullFly linear infinite; }
   .seagull svg {
-    width: 40px;
-    height: 20px;
+    width: 40px; height: 20px;
     animation: flapWings 0.6s ease-in-out infinite;
     transform-origin: center;
   }
@@ -118,56 +80,37 @@
     0% { left: -60px; }
     100% { left: calc(100vw + 60px); }
   }
-
-  /* === ВОЛНЫ === */
   .waves {
-    position: fixed;
-    bottom: 0; left: 0;
-    width: 100%;
-    height: 220px;
-    pointer-events: none;
-    z-index: 4;
-    overflow: hidden;
+    position: fixed; bottom: 0; left: 0;
+    width: 100%; height: 220px;
+    pointer-events: none; z-index: 4; overflow: hidden;
   }
   .wave {
-    position: absolute;
-    bottom: 0;
-    width: 200%;
-    height: 100%;
+    position: absolute; bottom: 0;
+    width: 200%; height: 100%;
     background-repeat: repeat-x;
     background-size: 50% 100%;
   }
   .wave1 {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'><path d='M0,60 C150,100 350,20 600,60 C850,100 1050,20 1200,60 L1200,120 L0,120 Z' fill='%234FC3F7'/></svg>");
-    animation: waveMove 10s linear infinite;
-    opacity: 0.85;
+    animation: waveMove 10s linear infinite; opacity: 0.85;
   }
   .wave2 {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'><path d='M0,60 C150,20 350,100 600,60 C850,20 1050,100 1200,60 L1200,120 L0,120 Z' fill='%2329B6F6'/></svg>");
-    animation: waveMove 7s linear infinite reverse;
-    opacity: 0.7;
-    bottom: 10px;
+    animation: waveMove 7s linear infinite reverse; opacity: 0.7; bottom: 10px;
   }
   .wave3 {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'><path d='M0,60 C150,100 350,20 600,60 C850,100 1050,20 1200,60 L1200,120 L0,120 Z' fill='%230288D1'/></svg>");
-    animation: waveMove 13s linear infinite;
-    opacity: 0.95;
-    bottom: 0;
+    animation: waveMove 13s linear infinite; opacity: 0.95; bottom: 0;
   }
   @keyframes waveMove {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
-
-  /* === РЫБЫ === */
   .fish-layer {
-    position: fixed;
-    bottom: 0; left: 0;
-    width: 100%;
-    height: 220px;
-    pointer-events: none;
-    z-index: 5;
-    overflow: hidden;
+    position: fixed; bottom: 0; left: 0;
+    width: 100%; height: 220px;
+    pointer-events: none; z-index: 5; overflow: hidden;
   }
   .fish {
     position: absolute;
@@ -175,39 +118,28 @@
     animation-fill-mode: forwards;
   }
   .fish svg {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.3));
     animation: fishWiggle 0.5s ease-in-out infinite;
   }
-
-  /* Рыба плывёт СЛЕВА НАПРАВО (голова смотрит вправо — базовая ориентация SVG) */
-  .fish.swim-right {
-    animation-name: fishSwimRight;
-  }
-  /* Рыба плывёт СПРАВА НАЛЕВО — разворачиваем весь контейнер */
+  .fish.swim-right { animation-name: fishSwimRight; }
   .fish.swim-left {
     animation-name: fishSwimLeft;
     transform: scaleX(-1);
   }
-
   @keyframes fishSwimRight {
-    0%   { left: -80px; }
+    0% { left: -80px; }
     100% { left: calc(100% + 80px); }
   }
   @keyframes fishSwimLeft {
-    0%   { left: calc(100% + 80px); }
+    0% { left: calc(100% + 80px); }
     100% { left: -80px; }
   }
-
-  /* Покачивание рыбы при плавании */
   @keyframes fishWiggle {
     0%, 100% { transform: translateY(0) rotate(0deg); }
     25% { transform: translateY(-3px) rotate(-2deg); }
     75% { transform: translateY(3px) rotate(2deg); }
   }
-
-  /* Пузырьки от рыб */
   .bubble {
     position: absolute;
     background: rgba(255,255,255,0.6);
@@ -218,92 +150,49 @@
     0% { transform: translateY(0) scale(0.5); opacity: 0.8; }
     100% { transform: translateY(-60px) scale(1.2); opacity: 0; }
   }
-
-  /* === ОСНОВНОЙ КОНТЕЙНЕР === */
-  .container {
-    position: relative;
-    z-index: 10;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
+  .container { position: relative; z-index: 10; max-width: 900px; margin: 0 auto; }
   h1 {
-    text-align: center;
-    font-size: 2.2em;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(255,255,255,0.6);
-    color: #0d47a1;
+    text-align: center; font-size: 2.2em; margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.6); color: #0d47a1;
   }
-
-  /* Панель статуса */
   .status-panel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
     background: rgba(255, 255, 255, 0.85);
-    border: 3px solid #0d47a1;
-    border-radius: 15px;
-    padding: 12px 25px;
-    margin-bottom: 20px;
+    border: 3px solid #0d47a1; border-radius: 15px;
+    padding: 12px 25px; margin-bottom: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     backdrop-filter: blur(5px);
   }
-  .status-item {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #0d47a1;
-  }
-  .status-item span {
-    color: #d84315;
-    font-size: 1.4em;
-  }
-
-  /* Шкала пути */
+  .status-item { font-size: 1.2em; font-weight: bold; color: #0d47a1; }
+  .status-item span { color: #d84315; font-size: 1.4em; }
   .path-container {
     background: rgba(255, 255, 255, 0.85);
-    border: 3px solid #0d47a1;
-    border-radius: 15px;
-    padding: 20px 15px 15px;
-    margin-bottom: 25px;
+    border: 3px solid #0d47a1; border-radius: 15px;
+    padding: 20px 15px 15px; margin-bottom: 25px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
   }
   .path-labels {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 1em;
-    color: #0d47a1;
-    font-weight: bold;
+    display: flex; justify-content: space-between;
+    margin-bottom: 10px; font-size: 1em;
+    color: #0d47a1; font-weight: bold;
   }
   .path-track {
-    position: relative;
-    height: 80px;
+    position: relative; height: 80px;
     background: linear-gradient(to bottom, #81D4FA, #29B6F6, #0288D1);
-    border-radius: 20px;
-    border: 3px solid #0d47a1;
+    border-radius: 20px; border: 3px solid #0d47a1;
     overflow: visible;
   }
   .path-marks {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex; justify-content: space-between;
+    align-items: center; padding: 0 20px;
   }
-  .path-mark {
-    width: 2px;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.4);
-  }
+  .path-mark { width: 2px; height: 100%; background: rgba(255, 255, 255, 0.4); }
   .ship {
-    position: absolute;
-    top: 50%;
+    position: absolute; top: 50%;
     transform: translate(-50%, -50%);
-    width: 110px;
-    height: 90px;
+    width: 110px; height: 90px;
     transition: left 0.9s cubic-bezier(0.4, 0, 0.2, 1);
     filter: drop-shadow(3px 4px 5px rgba(0,0,0,0.4));
     animation: shipRock 3s ease-in-out infinite;
@@ -312,35 +201,24 @@
     0%, 100% { transform: translate(-50%, -50%) rotate(-4deg); }
     50% { transform: translate(-50%, -50%) rotate(4deg); }
   }
-  .ship.forward {
-    animation: shipRock 3s ease-in-out infinite, shipForward 0.9s ease-out;
-  }
+  .ship.forward { animation: shipRock 3s ease-in-out infinite, shipForward 0.9s ease-out; }
   @keyframes shipForward {
     0% { filter: drop-shadow(3px 4px 5px rgba(0,0,0,0.4)); }
     50% { filter: drop-shadow(0 0 20px #4caf50) drop-shadow(3px 4px 5px rgba(0,0,0,0.4)); }
     100% { filter: drop-shadow(3px 4px 5px rgba(0,0,0,0.4)); }
   }
-  .ship.backward {
-    animation: shipRock 3s ease-in-out infinite, shipBack 0.9s ease-out;
-  }
+  .ship.backward { animation: shipRock 3s ease-in-out infinite, shipBack 0.9s ease-out; }
   @keyframes shipBack {
     0% { filter: drop-shadow(3px 4px 5px rgba(0,0,0,0.4)); }
     50% { filter: drop-shadow(0 0 20px #f44336) drop-shadow(3px 4px 5px rgba(0,0,0,0.4)); }
     100% { filter: drop-shadow(3px 4px 5px rgba(0,0,0,0.4)); }
   }
-
-  /* Вспышки */
   .storm {
-    position: fixed;
-    top: 0; left: 0;
+    position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 50;
-    opacity: 0;
+    pointer-events: none; z-index: 50; opacity: 0;
   }
-  .storm.active {
-    animation: stormFlash 1.5s ease-out;
-  }
+  .storm.active { animation: stormFlash 1.5s ease-out; }
   @keyframes stormFlash {
     0% { background: rgba(255, 50, 50, 0.3); }
     20% { background: rgba(255, 255, 255, 0.5); }
@@ -348,247 +226,137 @@
     100% { background: transparent; }
   }
   .success-flash {
-    position: fixed;
-    top: 0; left: 0;
+    position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 50;
-    opacity: 0;
+    pointer-events: none; z-index: 50; opacity: 0;
   }
-  .success-flash.active {
-    animation: successFlash 1s ease-out;
-  }
+  .success-flash.active { animation: successFlash 1s ease-out; }
   @keyframes successFlash {
     0% { background: rgba(100, 255, 150, 0.35); }
     100% { background: transparent; }
   }
-
-  /* Игровая карточка */
   .game-card {
     background: rgba(255, 255, 255, 0.92);
-    border: 3px solid #0d47a1;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    backdrop-filter: blur(8px);
-    text-align: center;
+    border: 3px solid #0d47a1; border-radius: 20px;
+    padding: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px); text-align: center;
     position: relative;
   }
-
   .word-display {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #0d47a1;
-    margin: 15px 0 30px;
+    font-size: 2.5em; font-weight: bold;
+    color: #0d47a1; margin: 15px 0 30px;
     letter-spacing: 2px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     font-family: 'Georgia', serif;
   }
   .word-display .blank {
-    display: inline-block;
-    min-width: 60px;
+    display: inline-block; min-width: 60px;
     border-bottom: 4px solid #d84315;
-    color: #d84315;
-    margin: 0 5px;
+    color: #d84315; margin: 0 5px;
   }
-
   .stage-label {
-    font-size: 1.1em;
-    color: #0d47a1;
-    margin-bottom: 15px;
-    font-style: italic;
-    font-weight: bold;
+    font-size: 1.1em; color: #0d47a1;
+    margin-bottom: 15px; font-style: italic; font-weight: bold;
   }
-
-  /* Кнопки Н/НН */
   .letter-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin: 20px 0;
+    display: flex; justify-content: center; gap: 30px; margin: 20px 0;
   }
   .letter-btn {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
+    width: 130px; height: 130px; border-radius: 50%;
     border: 4px solid #0d47a1;
     background: radial-gradient(circle at 30% 30%, #4FC3F7, #0277BD);
-    color: #fff;
-    font-size: 2em;
-    font-weight: bold;
-    font-family: 'Georgia', serif;
-    cursor: pointer;
+    color: #fff; font-size: 2em; font-weight: bold;
+    font-family: 'Georgia', serif; cursor: pointer;
     box-shadow: 0 6px 15px rgba(0,0,0,0.3), inset 0 -4px 10px rgba(0,0,0,0.2);
-    transition: all 0.2s;
-    position: relative;
+    transition: all 0.2s; position: relative;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   }
   .letter-btn::before {
-    content: '⚓';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.6em;
-    color: #0d47a1;
+    content: ''; position: absolute; top: -15px; left: 50%;
+    transform: translateX(-50%); font-size: 0.6em; color: #0d47a1;
   }
   .letter-btn:hover {
     transform: scale(1.08);
     box-shadow: 0 8px 20px rgba(13, 71, 161, 0.5);
   }
-  .letter-btn:active {
-    transform: scale(0.95);
-  }
-  .letter-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  /* Кнопки правил */
+  .letter-btn:active { transform: scale(0.95); }
+  .letter-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
   .rule-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 20px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;
   }
   .rule-btn {
     background: linear-gradient(to bottom, #fff8dc, #f5deb3);
-    border: 3px solid #8b7355;
-    border-radius: 10px;
-    padding: 15px;
-    color: #3a2817;
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
+    border: 3px solid #8b7355; border-radius: 10px;
+    padding: 15px; color: #3a2817;
+    font-size: 1em; font-weight: bold; cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: all 0.2s;
-    font-family: 'Georgia', serif;
-    text-align: left;
-    position: relative;
+    transition: all 0.2s; font-family: 'Georgia', serif;
+    text-align: left; position: relative;
   }
   .rule-btn::before {
-    content: '📜';
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    font-size: 1.2em;
+    content: '📜'; position: absolute; top: -10px; left: 10px; font-size: 1.2em;
   }
   .rule-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(13, 71, 161, 0.4);
     background: linear-gradient(to bottom, #fffacd, #fff8dc);
   }
-  .rule-btn:active {
-    transform: translateY(0);
-  }
-  .rule-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  /* Тост */
+  .rule-btn:active { transform: translateY(0); }
+  .rule-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
   .toast {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    position: fixed; top: 50%; left: 50%;
     transform: translate(-50%, -50%) scale(0);
     background: rgba(255, 255, 255, 0.97);
-    border: 3px solid #0d47a1;
-    border-radius: 15px;
-    padding: 25px 35px;
-    color: #0d47a1;
-    font-size: 1.2em;
-    font-weight: bold;
-    z-index: 100;
-    text-align: center;
-    max-width: 80%;
+    border: 3px solid #0d47a1; border-radius: 15px;
+    padding: 25px 35px; color: #0d47a1;
+    font-size: 1.2em; font-weight: bold;
+    z-index: 100; text-align: center; max-width: 80%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     white-space: pre-line;
   }
-  .toast.show {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  .toast.success {
-    border-color: #2e7d32;
-    color: #1b5e20;
-  }
-  .toast.error {
-    border-color: #c62828;
-    color: #b71c1c;
-  }
-
-  /* Финальный экран */
-  .final-screen {
-    text-align: center;
-    padding: 40px 20px;
-  }
+  .toast.show { transform: translate(-50%, -50%) scale(1); }
+  .toast.success { border-color: #2e7d32; color: #1b5e20; }
+  .toast.error { border-color: #c62828; color: #b71c1c; }
+  .final-screen { text-align: center; padding: 40px 20px; }
   .final-screen h2 {
-    font-size: 2.2em;
-    margin-bottom: 20px;
-    color: #0d47a1;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-size: 2.2em; margin-bottom: 20px;
+    color: #0d47a1; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   }
   .final-screen .result-icon {
-    font-size: 5em;
-    margin: 20px 0;
+    font-size: 5em; margin: 20px 0;
     animation: resultPulse 2s ease-in-out infinite;
   }
   @keyframes resultPulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.1); }
   }
-  .final-screen p {
-    font-size: 1.3em;
-    margin: 15px 0;
-    color: #0d47a1;
-  }
+  .final-screen p { font-size: 1.3em; margin: 15px 0; color: #0d47a1; }
   .restart-btn {
-    margin-top: 25px;
-    padding: 15px 40px;
-    font-size: 1.2em;
-    font-weight: bold;
+    margin-top: 25px; padding: 15px 40px;
+    font-size: 1.2em; font-weight: bold;
     background: linear-gradient(to bottom, #ffd700, #ff8f00);
-    border: 3px solid #0d47a1;
-    border-radius: 30px;
-    color: #0d47a1;
-    cursor: pointer;
+    border: 3px solid #0d47a1; border-radius: 30px;
+    color: #0d47a1; cursor: pointer;
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-    transition: all 0.2s;
-    font-family: 'Georgia', serif;
+    transition: all 0.2s; font-family: 'Georgia', serif;
   }
   .restart-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(13, 71, 161, 0.5);
   }
-  .restart-btn:active {
-    transform: scale(0.98);
-  }
-
+  .restart-btn:active { transform: scale(0.98); }
   .hidden { display: none !important; }
-
-  /* Кнопка звука */
   .sound-toggle {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
+    position: fixed; top: 15px; left: 15px;
+    width: 45px; height: 45px; border-radius: 50%;
     background: rgba(255,255,255,0.9);
     border: 2px solid #0d47a1;
-    font-size: 1.3em;
-    cursor: pointer;
-    z-index: 200;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-size: 1.3em; cursor: pointer;
+    z-index: 200; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: all 0.2s;
   }
-  .sound-toggle:hover {
-    transform: scale(1.1);
-  }
-
+  .sound-toggle:hover { transform: scale(1.1); }
   @media (max-width: 600px) {
     h1 { font-size: 1.5em; }
     .word-display { font-size: 1.8em; }
@@ -601,34 +369,25 @@
 </head>
 <body>
 
-<!-- Солнце -->
 <div class="sun"></div>
-
-<!-- Облака -->
 <div class="clouds-layer" id="cloudsLayer"></div>
-
-<!-- Чайки -->
 <div class="seagulls-layer" id="seagullsLayer"></div>
 
-<!-- Волны -->
 <div class="waves">
   <div class="wave wave1"></div>
   <div class="wave wave2"></div>
   <div class="wave wave3"></div>
 </div>
 
-<!-- Рыбы -->
 <div class="fish-layer" id="fishLayer"></div>
 
-<!-- Эффекты -->
 <div class="storm" id="storm"></div>
 <div class="success-flash" id="successFlash"></div>
 
-<!-- Кнопка звука -->
 <button class="sound-toggle" id="soundToggle" title="Звук вкл/выкл">🔊</button>
 
 <div class="container">
-  <h1>⚓ Морская бухта ⚓</h1>
+  <h1> Морская бухта ⚓</h1>
 
   <div class="status-panel">
     <div class="status-item">Миль пройдено: <span id="milesCount">0</span> / 10</div>
@@ -636,42 +395,28 @@
 
   <div class="path-container">
     <div class="path-labels">
-      <span>🏖️ Бухта</span>
+      <span>️ Бухта</span>
       <span>🏝️ Остров</span>
     </div>
     <div class="path-track">
       <div class="path-marks">
-        <div class="path-mark"></div>
-        <div class="path-mark"></div>
-        <div class="path-mark"></div>
-        <div class="path-mark"></div>
-        <div class="path-mark"></div>
-        <div class="path-mark"></div>
-        <div class="path-mark"></div>
-        <div class="path-mark"></div>
-        <div class="path-mark"></div>
-        <div class="path-mark"></div>
+        <div class="path-mark"></div><div class="path-mark"></div>
+        <div class="path-mark"></div><div class="path-mark"></div>
+        <div class="path-mark"></div><div class="path-mark"></div>
+        <div class="path-mark"></div><div class="path-mark"></div>
+        <div class="path-mark"></div><div class="path-mark"></div>
         <div class="path-mark"></div>
       </div>
-      <!-- SVG-кораблик -->
       <svg class="ship" id="ship" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Корпус -->
         <path d="M15,65 L105,65 L95,88 L25,88 Z" fill="#8B4513" stroke="#5a2d0c" stroke-width="2"/>
-        <!-- Полоса на корпусе -->
         <rect x="25" y="70" width="70" height="3" fill="#ffd700"/>
-        <!-- Мачта -->
         <rect x="58" y="12" width="4" height="55" fill="#5a2d0c"/>
-        <!-- Большой парус -->
         <path d="M62,18 Q95,40 62,65 Z" fill="#ffffff" stroke="#ddd" stroke-width="1"/>
-        <!-- Малый парус -->
         <path d="M58,22 Q30,40 58,62 Z" fill="#fff8dc" stroke="#ddd" stroke-width="1"/>
-        <!-- Флаг -->
         <path d="M60,12 L38,17 L60,22 Z" fill="#e53935"/>
-        <!-- Иллюминаторы -->
         <circle cx="40" cy="78" r="3" fill="#ffd700" stroke="#5a2d0c" stroke-width="0.5"/>
         <circle cx="60" cy="78" r="3" fill="#ffd700" stroke="#5a2d0c" stroke-width="0.5"/>
         <circle cx="80" cy="78" r="3" fill="#ffd700" stroke="#5a2d0c" stroke-width="0.5"/>
-        <!-- Киль/волна под кораблём -->
         <path d="M10,88 Q60,95 110,88" stroke="#fff" stroke-width="2" fill="none" opacity="0.7"/>
       </svg>
     </div>
@@ -680,12 +425,10 @@
   <div class="game-card" id="gameCard">
     <div class="stage-label" id="stageLabel">Выберите букву:</div>
     <div class="word-display" id="wordDisplay"></div>
-
     <div class="letter-buttons" id="letterButtons">
       <button class="letter-btn" data-letter="Н">Н</button>
       <button class="letter-btn" data-letter="НН">НН</button>
     </div>
-
     <div class="rule-buttons hidden" id="ruleButtons"></div>
   </div>
 
@@ -702,7 +445,6 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  // ============ ДАННЫЕ ИГРЫ ============
   const WORDS = [
     { display: 'песча_ый берег',       correct: 'Н',  rule: 1, full: 'песчаный' },
     { display: 'глиня_ый кувшин',      correct: 'Н',  rule: 1, full: 'глиняный' },
@@ -720,42 +462,25 @@
     { display: 'оловя_ый солдатик',    correct: 'НН', rule: 4, full: 'оловянный' },
     { display: 'ветре_ый день',        correct: 'Н',  rule: 4, full: 'ветреный' }
   ];
-
   const RULES = [
     { id: 1, text: 'Суффиксы -ИН-, -АН-, -ЯН- → одна Н' },
     { id: 2, text: 'Суффиксы -ОНН-, -ЕНН- → две НН' },
     { id: 3, text: 'НН на стыке морфем (корень на Н + суффикс Н)' },
     { id: 4, text: 'Слово-исключение' }
   ];
-
-  // ============ СОСТОЯНИЕ ============
-  let state = {
-    words: [],
-    currentIndex: 0,
-    miles: 0,
-    stage: 'letter',
-    selectedLetter: null
-  };
-
-  // ============ ЗВУК (Web Audio API) ============
+  let state = { words: [], currentIndex: 0, miles: 0, stage: 'letter', selectedLetter: null };
   let audioCtx = null;
   let soundEnabled = true;
-
   function ensureAudio() {
     if (!audioCtx) {
-      try {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      } catch (e) {
-        soundEnabled = false;
-      }
+      try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+      catch (e) { soundEnabled = false; }
     }
-    if (audioCtx && audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
   }
-
-  function playTone(freq, duration, type = 'sine', volume = 0.25, delay = 0) {
+  function playTone(freq, duration, type, volume, delay) {
     if (!soundEnabled || !audioCtx) return;
+    type = type || 'sine'; volume = volume || 0.25; delay = delay || 0;
     const startTime = audioCtx.currentTime + delay;
     const osc = audioCtx.createOscillator();
     const gain = audioCtx.createGain();
@@ -764,29 +489,21 @@
     gain.gain.setValueAtTime(0, startTime);
     gain.gain.linearRampToValueAtTime(volume, startTime + 0.01);
     gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.start(startTime);
-    osc.stop(startTime + duration);
+    osc.connect(gain); gain.connect(audioCtx.destination);
+    osc.start(startTime); osc.stop(startTime + duration);
   }
-
   function playSuccess() {
     playTone(523.25, 0.18, 'sine', 0.25, 0);
     playTone(659.25, 0.18, 'sine', 0.25, 0.1);
     playTone(783.99, 0.35, 'sine', 0.28, 0.2);
     playTone(1046.5, 0.4, 'triangle', 0.15, 0.35);
   }
-
   function playError() {
     playTone(220, 0.25, 'sawtooth', 0.15, 0);
     playTone(185, 0.25, 'sawtooth', 0.15, 0.15);
     playTone(146.83, 0.45, 'sawtooth', 0.18, 0.3);
   }
-
-  function playClick() {
-    playTone(880, 0.05, 'square', 0.08, 0);
-  }
-
+  function playClick() { playTone(880, 0.05, 'square', 0.08, 0); }
   function playWin() {
     const notes = [523.25, 659.25, 783.99, 1046.5, 1318.5];
     notes.forEach((f, i) => {
@@ -794,25 +511,15 @@
       playTone(f * 1.5, 0.3, 'triangle', 0.1, i * 0.15);
     });
   }
-
   function playLose() {
     const notes = [392, 349.23, 329.63, 261.63];
-    notes.forEach((f, i) => {
-      playTone(f, 0.4, 'triangle', 0.2, i * 0.2);
-    });
+    notes.forEach((f, i) => playTone(f, 0.4, 'triangle', 0.2, i * 0.2));
   }
-
-  // Переключатель звука
   document.getElementById('soundToggle').addEventListener('click', () => {
     soundEnabled = !soundEnabled;
     document.getElementById('soundToggle').textContent = soundEnabled ? '🔊' : '🔇';
-    if (soundEnabled) {
-      ensureAudio();
-      playClick();
-    }
+    if (soundEnabled) { ensureAudio(); playClick(); }
   });
-
-  // ============ УТИЛИТЫ ============
   function shuffle(arr) {
     const a = [...arr];
     for (let i = a.length - 1; i > 0; i--) {
@@ -821,36 +528,28 @@
     }
     return a;
   }
-
-  // ============ ОБЛАКА ============
   function createClouds() {
     const layer = document.getElementById('cloudsLayer');
     layer.innerHTML = '';
-    const cloudConfigs = [
+    const configs = [
       { width: 120, height: 40, top: '8%', duration: 80, delay: 0 },
       { width: 160, height: 50, top: '18%', duration: 110, delay: -30 },
       { width: 100, height: 35, top: '28%', duration: 95, delay: -60 },
       { width: 140, height: 45, top: '12%', duration: 130, delay: -80 },
       { width: 90, height: 30, top: '35%', duration: 100, delay: -45 }
     ];
-    cloudConfigs.forEach(cfg => {
+    configs.forEach(cfg => {
       const cloud = document.createElement('div');
       cloud.className = 'cloud';
       cloud.style.width = cfg.width + 'px';
       cloud.style.height = cfg.height + 'px';
       cloud.style.top = cfg.top;
-      cloud.style.animation = `cloudDrift ${cfg.duration}s linear infinite`;
+      cloud.style.animation = 'cloudDrift ' + cfg.duration + 's linear infinite';
       cloud.style.animationDelay = cfg.delay + 's';
       layer.appendChild(cloud);
     });
   }
-
-  // ============ ЧАЙКИ ============
-  const SEAGULL_SVG = `<svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg">
-    <path d="M5,12 Q15,3 25,11 Q30,14 35,11 Q45,3 55,12"
-          stroke="#2c3e50" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  </svg>`;
-
+  const SEAGULL_SVG = '<svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg"><path d="M5,12 Q15,3 25,11 Q30,14 35,11 Q45,3 55,12" stroke="#2c3e50" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>';
   function spawnSeagull() {
     const layer = document.getElementById('seagullsLayer');
     const gull = document.createElement('div');
@@ -866,120 +565,78 @@
     layer.appendChild(gull);
     setTimeout(() => gull.remove(), duration * 1000 + 500);
   }
-
   function startSeagulls() {
     setTimeout(spawnSeagull, 2000);
     function scheduleNext() {
       const delay = 4000 + Math.random() * 6000;
-      setTimeout(() => {
-        spawnSeagull();
-        scheduleNext();
-      }, delay);
+      setTimeout(() => { spawnSeagull(); scheduleNext(); }, delay);
     }
     scheduleNext();
   }
-
-  // ============ РЫБЫ ============
-  // Теперь базовый SVG рыбы смотрит ВПРАВО (голова справа, хвост слева)
-  // Поэтому при движении слева направо (swim-right) рыба плывёт головой вперёд.
-  // При движении справа налево (swim-left) контейнер разворачивается через scaleX(-1).
   const FISH_COLORS = ['#FF6F00', '#E53935', '#FFB300', '#FB8C00', '#F4511E'];
-
   function createFishSVG(color) {
-    return `<svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
-      <!-- Хвост СЛЕВА -->
-      <path d="M18,15 L5,5 L5,25 Z" fill="${color}"/>
-      <!-- Тело (центр смещён вправо) -->
-      <ellipse cx="36" cy="15" rx="18" ry="9" fill="${color}"/>
-      <!-- Плавник сверху -->
-      <path d="M30,7 Q36,2 42,7" fill="${color}" opacity="0.85"/>
-      <!-- Чешуйки -->
-      <path d="M30,10 Q34,8 38,10" stroke="#fff" stroke-width="0.5" fill="none" opacity="0.5"/>
-      <path d="M30,20 Q34,22 38,20" stroke="#fff" stroke-width="0.5" fill="none" opacity="0.5"/>
-      <!-- Глаз СПРАВА (голова смотрит вправо) -->
-      <circle cx="46" cy="12" r="2.2" fill="#fff"/>
-      <circle cx="46.5" cy="12" r="1.1" fill="#000"/>
-      <!-- Рот -->
-      <path d="M53,15 Q51,16 53,17" stroke="#000" stroke-width="0.5" fill="none" opacity="0.6"/>
-    </svg>`;
+    return '<svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">' +
+      '<path d="M18,15 L5,5 L5,25 Z" fill="' + color + '"/>' +
+      '<ellipse cx="36" cy="15" rx="18" ry="9" fill="' + color + '"/>' +
+      '<path d="M30,7 Q36,2 42,7" fill="' + color + '" opacity="0.85"/>' +
+      '<circle cx="46" cy="12" r="2.2" fill="#fff"/>' +
+      '<circle cx="46.5" cy="12" r="1.1" fill="#000"/>' +
+      '</svg>';
   }
-
   function spawnFish() {
     const layer = document.getElementById('fishLayer');
     const fish = document.createElement('div');
-    // Случайное направление: слева направо или справа налево
     const goRight = Math.random() > 0.5;
     fish.className = 'fish ' + (goRight ? 'swim-right' : 'swim-left');
-
     const y = 30 + Math.random() * 140;
     const duration = 10 + Math.random() * 8;
     const size = 35 + Math.random() * 30;
     const color = FISH_COLORS[Math.floor(Math.random() * FISH_COLORS.length)];
-
     fish.style.top = y + 'px';
     fish.style.width = size + 'px';
     fish.style.height = (size / 2) + 'px';
     fish.style.animationDuration = duration + 's';
     fish.innerHTML = createFishSVG(color);
     layer.appendChild(fish);
-
-    // Периодически выпускаем пузырьки
     const bubbleInterval = setInterval(() => {
-      if (!fish.parentNode) {
-        clearInterval(bubbleInterval);
-        return;
-      }
+      if (!fish.parentNode) { clearInterval(bubbleInterval); return; }
       const bubble = document.createElement('div');
       bubble.className = 'bubble';
       const bSize = 3 + Math.random() * 4;
       bubble.style.width = bSize + 'px';
       bubble.style.height = bSize + 'px';
-      // Пузырьки выходят со стороны головы (справа у базовой рыбы)
       bubble.style.left = (goRight ? size * 0.75 : size * 0.15) + 'px';
       bubble.style.top = '5px';
       fish.appendChild(bubble);
       setTimeout(() => bubble.remove(), 2000);
     }, 700);
-
-    setTimeout(() => {
-      fish.remove();
-      clearInterval(bubbleInterval);
-    }, duration * 1000 + 100);
+    setTimeout(() => { fish.remove(); clearInterval(bubbleInterval); }, duration * 1000 + 100);
   }
-
   function startFish() {
     setTimeout(spawnFish, 3000);
     function scheduleNext() {
       const delay = 3500 + Math.random() * 5000;
-      setTimeout(() => {
-        spawnFish();
-        scheduleNext();
-      }, delay);
+      setTimeout(() => { spawnFish(); scheduleNext(); }, delay);
     }
     scheduleNext();
   }
-
-  // ============ ИГРА ============
   function initGame() {
     state.words = shuffle(WORDS);
     state.currentIndex = 0;
     state.miles = 0;
     state.stage = 'letter';
     state.selectedLetter = null;
-
     document.getElementById('gameCard').classList.remove('hidden');
     document.getElementById('finalScreen').classList.add('hidden');
-
     updateStatus();
     updateShipPosition();
     showCurrentWord();
   }
-
   function updateStatus() {
     document.getElementById('milesCount').textContent = state.miles;
   }
-
-  function updateShipPosition(animate = '') {
+  function updateShipPosition(animate) {
+    animate = animate || '';
     const ship = document.getElementById('ship');
     const percent = (state.miles / 10) * 100;
     ship.style.left = percent + '%';
@@ -990,45 +647,35 @@
       setTimeout(() => ship.classList.remove(animate), 900);
     }
   }
-
   function showCurrentWord() {
     const word = state.words[state.currentIndex];
     const wordDisplay = document.getElementById('wordDisplay');
     const parts = word.display.split('_');
     wordDisplay.innerHTML = parts[0] + '<span class="blank">&nbsp;</span>' + parts[1];
-
     document.getElementById('stageLabel').textContent = 'Выберите букву:';
     document.getElementById('letterButtons').classList.remove('hidden');
     document.getElementById('ruleButtons').classList.add('hidden');
-
     document.querySelectorAll('.letter-btn').forEach(btn => btn.disabled = false);
-
     state.stage = 'letter';
     state.selectedLetter = null;
   }
-
   function handleLetterChoice(letter) {
     ensureAudio();
     playClick();
     state.selectedLetter = letter;
     state.stage = 'rule';
-
     const word = state.words[state.currentIndex];
     const wordDisplay = document.getElementById('wordDisplay');
     const parts = word.display.split('_');
     wordDisplay.innerHTML = parts[0] + '<span class="blank" style="color:#d84315">' + letter + '</span>' + parts[1];
-
     document.querySelectorAll('.letter-btn').forEach(btn => btn.disabled = true);
-
     document.getElementById('stageLabel').textContent = 'Выберите правило:';
     showRuleButtons();
   }
-
   function showRuleButtons() {
     const container = document.getElementById('ruleButtons');
     container.innerHTML = '';
     const shuffledRules = shuffle(RULES);
-
     shuffledRules.forEach(rule => {
       const btn = document.createElement('button');
       btn.className = 'rule-btn';
@@ -1037,64 +684,46 @@
       btn.addEventListener('click', () => handleRuleChoice(rule.id, btn));
       container.appendChild(btn);
     });
-
     container.classList.remove('hidden');
   }
-
-  function handleRuleChoice(ruleId, btnEl) {
+  function handleRuleChoice(ruleId) {
     document.querySelectorAll('.rule-btn').forEach(btn => btn.disabled = true);
-
     const word = state.words[state.currentIndex];
     const letterCorrect = state.selectedLetter === word.correct;
     const ruleCorrect = ruleId === word.rule;
     const bothCorrect = letterCorrect && ruleCorrect;
-
     let toastText = '';
     let toastType = '';
-
     if (bothCorrect) {
-      toastText = `✅ Верно! ${word.full} — ${getRuleExplanation(word.rule)}`;
+      toastText = '✅ Верно! ' + word.full + ' — ' + getRuleExplanation(word.rule);
       toastType = 'success';
       state.miles = Math.min(10, state.miles + 1);
       triggerFlash('success');
       updateShipPosition('forward');
       playSuccess();
     } else {
-      const correctWord = word.full;
-      const correctRule = getRuleExplanation(word.rule);
-      toastText = `❌ Ошибка! Правильно — ${correctWord} (${correctRule})`;
-      if (!letterCorrect) {
-        toastText += `\nНужна буква: ${word.correct}`;
-      }
+      toastText = '❌ Ошибка! Правильно — ' + word.full + ' (' + getRuleExplanation(word.rule) + ')';
+      if (!letterCorrect) toastText += '\nНужна буква: ' + word.correct;
       toastType = 'error';
       state.miles = Math.max(0, state.miles - 1);
       triggerFlash('storm');
       updateShipPosition('backward');
       playError();
     }
-
     updateStatus();
     showToast(toastText, toastType);
-
     setTimeout(() => {
       state.currentIndex++;
-      if (state.currentIndex >= 15) {
-        endGame();
-      } else {
-        showCurrentWord();
-      }
+      if (state.currentIndex >= 15) endGame();
+      else showCurrentWord();
     }, 2400);
   }
-
   function getRuleExplanation(ruleId) {
-    switch (ruleId) {
-      case 1: return 'суффикс → одна Н';
-      case 2: return 'суффикс → две НН';
-      case 3: return 'стык морфем → две НН';
-      case 4: return 'исключение';
-    }
+    if (ruleId === 1) return 'суффикс → одна Н';
+    if (ruleId === 2) return 'суффикс → две НН';
+    if (ruleId === 3) return 'стык морфем → две НН';
+    return 'исключение';
   }
-
   function triggerFlash(type) {
     if (type === 'storm') {
       const storm = document.getElementById('storm');
@@ -1110,7 +739,6 @@
       setTimeout(() => flash.classList.remove('active'), 1000);
     }
   }
-
   function showToast(text, type) {
     const toast = document.getElementById('toast');
     toast.textContent = text;
@@ -1118,49 +746,31 @@
     setTimeout(() => toast.classList.add('show'), 50);
     setTimeout(() => toast.classList.remove('show'), 2200);
   }
-
   function endGame() {
     document.getElementById('gameCard').classList.add('hidden');
-    const finalScreen = document.getElementById('finalScreen');
-    finalScreen.classList.remove('hidden');
-
-    const resultIcon = document.getElementById('resultIcon');
-    const resultTitle = document.getElementById('resultTitle');
-    const resultText = document.getElementById('resultText');
-
+    document.getElementById('finalScreen').classList.remove('hidden');
     if (state.miles >= 10) {
-      resultIcon.textContent = '⚓';
-      resultTitle.textContent = 'Цель достигнута!';
-      resultText.textContent = `Вы доплыли до острова за ${state.miles} миль! Поздравляем!`;
+      document.getElementById('resultIcon').textContent = '⚓';
+      document.getElementById('resultTitle').textContent = 'Цель достигнута!';
+      document.getElementById('resultText').textContent = 'Вы доплыли до острова за ' + state.miles + ' миль! Поздравляем!';
       playWin();
     } else {
-      resultIcon.textContent = '🌊';
-      resultTitle.textContent = 'Шторм унёс вас в море...';
-      resultText.textContent = `Пройдено ${state.miles} миль из 10. Попробуйте снова!`;
+      document.getElementById('resultIcon').textContent = '🌊';
+      document.getElementById('resultTitle').textContent = 'Шторм унёс вас в море...';
+      document.getElementById('resultText').textContent = 'Пройдено ' + state.miles + ' миль из 10. Попробуйте снова!';
       playLose();
     }
   }
-
-  // ============ ОБРАБОТЧИКИ ============
   document.querySelectorAll('.letter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      if (state.stage === 'letter') {
-        handleLetterChoice(btn.dataset.letter);
-      }
+      if (state.stage === 'letter') handleLetterChoice(btn.dataset.letter);
     });
   });
-
   document.getElementById('restartBtn').addEventListener('click', () => {
-    ensureAudio();
-    playClick();
-    initGame();
+    ensureAudio(); playClick(); initGame();
   });
-
-  // Разблокировка аудио при первом взаимодействии
   document.addEventListener('click', ensureAudio, { once: true });
   document.addEventListener('touchstart', ensureAudio, { once: true });
-
-  // ============ ЗАПУСК ============
   createClouds();
   startSeagulls();
   startFish();
